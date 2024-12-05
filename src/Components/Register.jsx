@@ -1,50 +1,56 @@
 import React, { useContext } from 'react';
 import signup from "../assets/signup.png"
 import { FcGoogle } from 'react-icons/fc';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FaGithub } from 'react-icons/fa';
 import { AuthContext } from '../Provider/AuthProvider';
+import Swal from 'sweetalert2';
 
 
 const Register = () => {
 
-    const {setUser, createNewUser, GoogleLogin} = useContext(AuthContext)
+    const { setUser, createNewUser, GoogleLogin } = useContext(AuthContext)
+    const navigate = useNavigate()
 
-    const handleSubmit = e =>{
+    const handleSubmit = e => {
         e.preventDefault()
 
-        const form = e.target 
+        const form = e.target
         const name = form.name.value
         const email = form.email.value
         const photo = form.photo.value
         const password = form.password.value
-        const regUser = {name, email, photo, password}
+        const regUser = { name, email, photo, password }
         console.log(regUser);
 
         createNewUser(email, password)
-        .then((result) =>{
-            const user = result.user 
-            console.log(user);
-            setUser(user)
-        })
-        .catch(err =>{
-            console.log('Error:', err.message);
-        })
+            .then((result) => {
+                const user = result.user
+                console.log(user);
+                setUser(user)
+                Swal.fire("Singed Up Successfully!");
+                navigate('/')
+            })
+            .catch(err => {
+                console.log('Error:', err.message);
+            })
     }
 
-    const handleGoogleLogin = ()=>{
+    const handleGoogleLogin = () => {
         GoogleLogin()
-        .then((result) =>{
-            const user = result.user 
-            console.log(user);
-            setUser(user)
-        })
-        .catch(err=>{
-            console.log('Error:', err.message);
-        })
+            .then((result) => {
+                const user = result.user
+                console.log(user);
+                setUser(user)
+                Swal.fire("Log in with google is Successfull!");
+                navigate('/')
+            })
+            .catch(err => {
+                console.log('Error:', err.message);
+            })
     }
 
-    
+
     return (
         <div className='w-11/12 h-max mt-5 mx-auto flex flex-col lg:flex-row items-start gap-10'>
             <img src={signup} alt="" className='lg:w-2/5 lg:mt-20' />

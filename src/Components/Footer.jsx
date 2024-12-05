@@ -7,7 +7,7 @@ const Footer = () => {
         <div className='footer-bg px-3 bg-amber-100 mt-10 flex flex-col items-center space-y-2 py-10'>
             <img src={logo} alt="" className='lg:w-1/5 ' />
             <h1 className='font-semibold font-rancho text-xl'>"Fuel Ambitions, Spark Change"</h1>
-            <h2 className='font-semibold text-xl w-2/3'>A modern platform  to fund ideas, ventures, and meaningful causes, collaborative funding and limitless innovation.</h2>
+            <h2 className='font-semibold text-xl w-2/3'>A modern platform  to fund ideas, ventures, and meaningful causes and for collaborative funding and limitless innovation.</h2>
             <div className='flex items-center gap-3 py-6'>
                 <span className='bg-amber-300 rounded-full p-2.5'><FaLinkedinIn /></span>
                 <span className='bg-amber-300 rounded-full p-2.5'><FaYoutube /></span>

@@ -7,12 +7,18 @@ import MyCampaign from "../Components/MyCampaign";
 import MyDonation from "../Components/MyDonation";
 import AllCampaign from "../Components/AllCampaign";
 import '../App.css'
+import ErrorPage from "../Components/ErrorPage";
+import Home from "../Components/Home";
 
 const Router = createBrowserRouter([
     {
         path: "/",
         element: <HomeLayout></HomeLayout>,
         children: [
+            {
+                path: "/",
+                element: <Home></Home>
+            },
             {
                 path: "allcampaign",
                 element: <AllCampaign></AllCampaign>
@@ -36,9 +42,15 @@ const Router = createBrowserRouter([
             {
                 path: "register",
                 element: <Register></Register>
-            }
+            },
+            
         ]
+    },
+    {
+        path: "*",
+        element: <ErrorPage></ErrorPage>
     }
+
 ])
 
 export default Router;
