@@ -1,7 +1,27 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import logo from "../assets/crowd-logo.png"
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../Provider/AuthProvider';
+import Swal from 'sweetalert2';
+
+
 const Navbar = () => {
+
+    const { user , LogOut, setUser} = useContext(AuthContext)
+    const navigate = useNavigate()
+
+    const handleLogOut = ()=>{
+        LogOut()
+        .then(()=>{
+            setUser(null)
+            Swal.fire("Logged Out Successfully!");
+            navigate('/login')
+
+        })
+        .catch(err=>{
+            console.log('error:', err.message);
+        })
+    }
 
     const links = <>
         <li><NavLink to="/" className='bg-base-200 px-3 py-2 rounded-md '>Home</NavLink></li>
@@ -11,7 +31,7 @@ const Navbar = () => {
         <li><NavLink to="/mydonation" className='bg-base-200 px-3 py-2 rounded-md '>My Donations</NavLink></li>
     </>
     return (
-        <div className="navbar bg-base-100 w-11/12 mx-auto">
+        <div className="navbar bg-base-100 w-11/12 mx-auto ">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -30,21 +50,29 @@ const Navbar = () => {
                     </div>
                     <ul
                         tabIndex={0}
-                        className="space-x-3 menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                        className="space-x-3 space-y-5  menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-3 shadow">
                         {links}
                     </ul>
                 </div>
-                <img src={logo} alt="" className='scale-75' />
+                <Link to="/"><img src={logo} alt="" className='w-3/5 ' /></Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="space-x-5 font-semibold p-3 rounded-md menu-horizontal px-1">
                     {links}
                 </ul>
             </div>
-            <div className="navbar-end space-x-3 font-bold">
-                <NavLink to="/login" className="bg-green-100 p-3 rounded-md ">Login</NavLink>
-                <NavLink to="/register" className="bg-blue-100 p-3 rounded-md ">Register</NavLink>
-            </div>
+            {
+                user ? <div className="navbar-end space-x-3 font-bold">
+                            <h3>{user?.email}</h3>
+                            <Link onClick={handleLogOut} className="bg-blue-100 p-3 rounded-md ">LogOut</Link>
+                        </div>
+                    :
+                        <div className="navbar-end space-x-3 font-bold">
+                            <Link to="/login" className="bg-green-100 p-3 rounded-md ">Login</Link>
+                            <Link to="/register" className="bg-blue-100 p-3 rounded-md ">Register</Link>
+                        </div>
+
+            }
         </div>
     );
 };
