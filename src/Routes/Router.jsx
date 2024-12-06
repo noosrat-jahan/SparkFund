@@ -29,7 +29,8 @@ const Router = createBrowserRouter([
             },
             {
                 path: "mycampaign",
-                element: <MyCampaign></MyCampaign>
+                element: <MyCampaign></MyCampaign>,
+                loader: ()=>fetch('http://localhost:5000/myCampaigns/')
             },
             {
                 path: "mydonation",

@@ -46,3 +46,12 @@ a.active{
   background-color: #fabf55;
   transition: 0.5s; 
 }
+
+/* .cam-bg{
+  background-image: url('../src/assets/crowdbg.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  z-index: -1;
+  opacity: 0.6;
+} */
