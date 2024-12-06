@@ -9,6 +9,8 @@ import AllCampaign from "../Components/AllCampaign";
 import '../App.css'
 import ErrorPage from "../Components/ErrorPage";
 import Home from "../Components/Home";
+import UpdateCampaign from "../Components/UpdateCampaign";
+import DonationDetails from "../Components/DonationDetails";
 
 const Router = createBrowserRouter([
     {
@@ -21,11 +23,22 @@ const Router = createBrowserRouter([
             },
             {
                 path: "allcampaign",
-                element: <AllCampaign></AllCampaign>
+                element: <AllCampaign></AllCampaign>,
+                loader: ()=>fetch('http://localhost:5000/myCampaigns/')
+            },
+            {
+                path: "donationDetails/:id",
+                element: <DonationDetails></DonationDetails>,
+                loader: ({params})=>fetch(`http://localhost:5000/myCampaigns/${params.id}`)
             },
             {
                 path: "addcampaign",
                 element: <AddNewCampaign></AddNewCampaign>
+            },
+            {
+                path: "updateCampaign/:id",
+                element: <UpdateCampaign></UpdateCampaign>,
+                loader: ({params})=>fetch(`http://localhost:5000/myCampaigns/${params.id}`)
             },
             {
                 path: "mycampaign",

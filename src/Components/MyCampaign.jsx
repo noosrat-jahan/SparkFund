@@ -1,13 +1,21 @@
 import React, { useState } from 'react';
 import { FaEdit } from 'react-icons/fa';
 import { MdDelete } from 'react-icons/md';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 const MyCampaign = () => {
 
+    const navigate = useNavigate()
     const LoadedCampaigns = useLoaderData()
     const [myCampaigns, setmyCampaigns] = useState(LoadedCampaigns)
+
+
+    
+    const handleUpdate = id =>{
+        console.log(id);
+        navigate(`/updateCampaign/${id}`)
+    }
 
     const handleDelete = id => {
         console.log(id);
@@ -68,7 +76,7 @@ const MyCampaign = () => {
                                 <td>{mycampaign.title}</td>
                                 <td>{mycampaign.camtype}</td>
                                 <td>{mycampaign.deadline}</td>
-                                <td><button><FaEdit /></button></td>
+                                <td><button onClick={() => { handleUpdate(mycampaign._id) }}><FaEdit /></button></td>
                                 <td><button onClick={() => { handleDelete(mycampaign._id) }}><MdDelete /></button></td>
 
                             </tr>)
