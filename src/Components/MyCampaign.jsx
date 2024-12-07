@@ -81,7 +81,7 @@ const MyCampaign = () => {
                                 <td><img src={mycampaign.image} alt="" className='w-20 h-16' /></td>
                                 <td>{mycampaign.title}</td>
                                 <td>{mycampaign.camtype}</td>
-                                <td>{mycampaign.deadline}</td>
+                                <td>{mycampaign.formattedDate}</td>
                                 <td><button onClick={() => { handleUpdate(mycampaign._id) }}><FaEdit /></button></td>
                                 <td><button onClick={() => { handleDelete(mycampaign._id) }}><MdDelete /></button></td>
 

@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { AuthContext } from '../Provider/AuthProvider';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
+import { format } from "date-fns";
 
 const AddNewCampaign = () => {
 
@@ -12,15 +13,18 @@ const AddNewCampaign = () => {
         e.preventDefault()
 
         const form = e.target
+        const name = form.name.value
         const email = form.email.value
         const image = form.image.value
         const title = form.title.value
         const camtype = form.camtype.value
         const amount = form.amount.value
         const deadline = form.deadline.value
+        const formattedDate = format(new Date(deadline), "MMMM dd, yyyy");
+       
         const count = form.count.value
         const description = form.description.value
-        const newCampaign = {email, image, title, camtype, amount, deadline, count, description }
+        const newCampaign = { name, email, image, title, camtype, amount, formattedDate, count, description }
         console.log(newCampaign);
 
         fetch('http://localhost:5000/myCampaigns', {

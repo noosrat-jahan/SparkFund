@@ -33,7 +33,7 @@ const AllCampaign = () => {
                                 <td><img src={mycampaign.image} alt="" className='w-20 h-16' /></td>
                                 <td>{mycampaign.title}</td>
                                 <td>{mycampaign.camtype}</td>
-                                <td>{mycampaign.deadline}</td>
+                                <td>{mycampaign.formattedDate}</td>
                                 <td><Link to={`/donationDetails/${mycampaign._id}`} className='bg-pink-300 rounded font-bold underline p-2'>See More</Link></td>
                                
 
