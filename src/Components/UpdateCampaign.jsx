@@ -60,13 +60,13 @@ const UpdateCampaign = () => {
                 <div className='flex flex-col lg:flex-row items-center gap-3 '>
                     <div className="form-control w-full">
                         <label className="label">
-                            <span className="label-text">User Name</span>
+                            <span className="label-text dark:text-white">User Name</span>
                         </label>
                         <input type="text" name='name' defaultValue={user?.displayName} disabled className="input input-bordered" required />
                     </div>
                     <div className="form-control w-full">
                         <label className="label">
-                            <span className="label-text">User Email</span>
+                            <span className="label-text dark:text-white">User Email</span>
                         </label>
                         <input type="email" name='email' defaultValue={user?.email} disabled className="input input-bordered" required />
                     </div>
@@ -74,13 +74,13 @@ const UpdateCampaign = () => {
                 <div className='flex flex-col lg:flex-row items-center gap-3 '>
                     <div className="form-control w-full">
                         <label className="label">
-                            <span className="label-text">Thumbnail</span>
+                            <span className="label-text dark:text-white">Thumbnail</span>
                         </label>
                         <input type="text" name='image' defaultValue={image} placeholder="Enter Photo URL" className="input input-bordered" required />
                     </div>
                     <div className="form-control w-full">
                         <label className="label">
-                            <span className="label-text">Campaign Title</span>
+                            <span className="label-text dark:text-white">Campaign Title</span>
                         </label>
                         <input type="text" name='title' defaultValue={title} placeholder="Enter Campaign Title" className="input input-bordered" required />
                     </div>
@@ -90,7 +90,7 @@ const UpdateCampaign = () => {
 
                     <div className='form-control w-full'>
                         <label className="label">
-                            <span className="label-text">Campaign Type</span>
+                            <span className="label-text dark:text-white">Campaign Type</span>
                         </label>
                         <select name='camtype' defaultValue={camtype} className="select select-bordered  w-full ">
                             <option disabled selected>Which type of campaign?</option>
@@ -103,7 +103,7 @@ const UpdateCampaign = () => {
 
                     <div className="form-control w-full">
                         <label className="label">
-                            <span className="label-text">Minimum donation amount</span>
+                            <span className="label-text dark:text-white">Minimum donation amount</span>
                         </label>
                         <input type="number" name='amount' defaultValue={amount} placeholder="Enter Donation Amount" className="input input-bordered" required />
                     </div>
@@ -111,20 +111,20 @@ const UpdateCampaign = () => {
                 <div className='flex flex-col lg:flex-row items-center gap-3'>
                     <div className="form-control w-full">
                         <label className="label">
-                            <span className="label-text">Deadline</span>
+                            <span className="label-text dark:text-white">Deadline</span>
                         </label>
                         <input type="date" name='deadline' defaultValue={deadline} placeholder="Enter coffee category" className="input input-bordered" required />
                     </div>
                     <div className="form-control w-full">
                         <label className="label">
-                            <span className="label-text">Funding Count</span>
+                            <span className="label-text dark:text-white">Funding Count</span>
                         </label>
                         <input type="text" name='count' defaultValue={count} placeholder="Enter total funding count" className="input input-bordered" required />
                     </div>
                 </div>
                 <div className="form-control">
                     <label className="label">
-                        <span className="label-text">Description</span>
+                        <span className="label-text dark:text-white">Description</span>
                     </label>
                     <textarea name="description" defaultValue={description} id="" cols="30" placeholder='Add a short description...' className="textarea textarea-bordered"></textarea>
                 </div>

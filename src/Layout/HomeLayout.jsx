@@ -6,7 +6,7 @@ import '../App.css'
 
 const HomeLayout = () => {
     return (
-        <div className='font-inter'>
+        <div className='font-inter dark:bg-[#1d232a] dark:text-white'>
             <Navbar></Navbar>
             <Outlet></Outlet>
             <Footer></Footer>

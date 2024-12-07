@@ -63,7 +63,7 @@ const MyCampaign = () => {
             <div className="overflow-x-auto w-11/12 mx-auto mt-10">
                 <table className="table text-base">
                     {/* head */}
-                    <thead className='text-xl'>
+                    <thead className='text-xl dark:text-white'>
                         <tr>
                             <th></th>
                             <th>Thumbnail</th>

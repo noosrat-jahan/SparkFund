@@ -4,7 +4,7 @@ import { FaFacebookF, FaInstagram, FaLinkedinIn, FaTwitter, FaYoutube } from 're
 
 const Footer = () => {
     return (
-        <div className='footer-bg px-3 bg-amber-100 mt-10 flex flex-col items-center space-y-2 py-10'>
+        <div className='footer-bg px-3 bg-amber-100 dark:text-black mt-10 flex flex-col items-center space-y-2 py-10'>
             <img src={logo} alt="" className='lg:w-1/5 ' />
             <h1 className='font-semibold font-rancho text-xl'>"Fuel Ambitions, Spark Change"</h1>
             <h2 className='font-semibold text-xl w-2/3'>A modern platform  to fund ideas, ventures, and meaningful causes and for collaborative funding and limitless innovation.</h2>
