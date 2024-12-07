@@ -20,7 +20,7 @@ const DonationDetails = () => {
             confirmButtonText: "Sure, I am ready to donate"
           }).then((result) => {
             if (result.isConfirmed) {
-                fetch('http://localhost:5000/myDonation/', {
+                fetch('https://crowd-funding-application-server.vercel.app/myDonation/', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'

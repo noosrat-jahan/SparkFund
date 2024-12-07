@@ -27,7 +27,7 @@ const AddNewCampaign = () => {
         const newCampaign = { name, email, image, title, camtype, amount, formattedDate, count, description }
         console.log(newCampaign);
 
-        fetch('http://localhost:5000/myCampaigns', {
+        fetch('https://crowd-funding-application-server.vercel.app/myCampaigns', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

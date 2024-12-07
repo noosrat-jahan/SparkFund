@@ -21,17 +21,17 @@ const Router = createBrowserRouter([
             {
                 path: "/",
                 element: <Home></Home>,
-                loader: ()=>fetch('http://localhost:5000/myCampaigns/')
+                loader: ()=>fetch('https://crowd-funding-application-server.vercel.app/myCampaigns/')
             },
             {
                 path: "/allcampaign",
                 element: <AllCampaign></AllCampaign>,
-                loader: ()=>fetch('http://localhost:5000/myCampaigns/')
+                loader: ()=>fetch('https://crowd-funding-application-server.vercel.app/myCampaigns/')
             },
             {
                 path: "/donationDetails/:id",
                 element: <PrivateRoute><DonationDetails></DonationDetails></PrivateRoute>,
-                loader: ({params})=>fetch(`http://localhost:5000/myCampaigns/${params.id}`)
+                loader: ({params})=>fetch(`https://crowd-funding-application-server.vercel.app/myCampaigns/${params.id}`)
             },
             {
                 path: "/addcampaign",
@@ -40,17 +40,17 @@ const Router = createBrowserRouter([
             {
                 path: "updateCampaign/:id",
                 element: <UpdateCampaign></UpdateCampaign>,
-                loader: ({params})=>fetch(`http://localhost:5000/myCampaigns/${params.id}`)
+                loader: ({params})=>fetch(`https://crowd-funding-application-server.vercel.app/myCampaigns/${params.id}`)
             },
             {
                 path: "/mycampaign",
                 element: <PrivateRoute><MyCampaign></MyCampaign></PrivateRoute>,
-                loader: ()=>fetch('http://localhost:5000/myCampaigns/')
+                loader: ()=>fetch('https://crowd-funding-application-server.vercel.app/myCampaigns/')
             },
             {
                 path: "/mydonation",
                 element: <PrivateRoute><MyDonation></MyDonation></PrivateRoute>,
-                loader: ()=>fetch('http://localhost:5000/myDonation/')
+                loader: ()=>fetch('https://crowd-funding-application-server.vercel.app/myDonation/')
             },
             {
                 path: "login",

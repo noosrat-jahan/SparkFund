@@ -76,8 +76,8 @@ const Navbar = () => {
                 </div>
                     :
                     <div className="navbar-end space-x-3 font-bold">
-                        <Link to="/login" className="bg-green-100 p-3 rounded-md ">Login</Link>
-                        <Link to="/register" className="bg-blue-100 p-3 rounded-md ">Register</Link>
+                        <Link to="/login" className="bg-green-100 dark:text-black p-3 rounded-md ">Login</Link>
+                        <Link to="/register" className="bg-blue-100 dark:text-black p-3 rounded-md ">Register</Link>
                     </div>
 
             }

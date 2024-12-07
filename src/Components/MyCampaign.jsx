@@ -37,7 +37,7 @@ const MyCampaign = () => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`http://localhost:5000/myCampaigns/${id}`, {
+                fetch(`https://crowd-funding-application-server.vercel.app/myCampaigns/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
