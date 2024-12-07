@@ -35,16 +35,14 @@ const DonationDetails = () => {
                             title: "Congratulations!!",
                             text: " Successfully added your Donation",
                             imageUrl: image,
-                            imageWidth: 400,
+                            imageWidth: 500,
                             imageHeight: 200,
                             imageAlt: "Custom image"
                           });
                     }
-                })
-             
+                })             
             }
-          });
-        
+          });   
     }
 
     return (
