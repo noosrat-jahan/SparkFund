@@ -1,5 +1,7 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Swal from 'sweetalert2';
 
 const DonationDetails = () => {
@@ -7,8 +9,29 @@ const DonationDetails = () => {
     const donationDetails = useLoaderData()
     const {name, email, image, title, camtype, description, formattedDate, amount, count } = donationDetails
 
+    
     const handleDonate = ()=>{
+
+        const currentTime = new Date().toLocaleString('en-US', {
+            day: '2-digit',
+            month: 'long',
+            year: 'numeric',
+        }, { timeZone: 'UTC' });
+    
         const DonatedCampaign = {name, email, image, title, camtype, description, formattedDate, amount, count }
+
+
+        if(new Date(formattedDate) < new Date(currentTime)){
+            toast.error("Sorry, Campaign is no longer active!", {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+              });
+            return
+        }
 
         Swal.fire({
             title: "Are you ready to donate?",
@@ -59,6 +82,7 @@ const DonationDetails = () => {
                 </div>
                 <button onClick={handleDonate} className='bg-[#04a85b] font-bold text-white p-3 rounded-md shadow-2xl'>Donate Now</button>
             </div>
+            <ToastContainer />
         </div>
     );
 };

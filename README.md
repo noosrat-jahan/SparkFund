@@ -1,4 +1,3 @@
-# Website Name
 # SparkFund
 # Live Site Link
 # [https://sparkfund-fa3af.web.app/]
