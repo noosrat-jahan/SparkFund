@@ -9,6 +9,7 @@ export default {
       fontFamily: {
         inter: ['Inter', 'sans-serif'],
         rancho: ['Rancho', 'cursive'],
+        poppins: ['Poppins', 'sans-serif']
       },
     },
   },

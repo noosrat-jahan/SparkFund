@@ -1,15 +1,21 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { FaEdit } from 'react-icons/fa';
 import { MdDelete } from 'react-icons/md';
 import { useLoaderData, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import { AuthContext } from '../Provider/AuthProvider';
 
 const MyCampaign = () => {
 
+    const {user} = useContext(AuthContext)
     const navigate = useNavigate()
+
+    
     const LoadedCampaigns = useLoaderData()
     const [myCampaigns, setmyCampaigns] = useState(LoadedCampaigns)
 
+    const userWiseCampaign = myCampaigns.filter(camp => camp.email === user?.email)
+    // setmyCampaigns(userWiseCampaign)
 
     
     const handleUpdate = id =>{
@@ -70,7 +76,7 @@ const MyCampaign = () => {
                     <tbody>
 
                         {
-                            myCampaigns.map((mycampaign, index) => <tr key={mycampaign._id}>
+                            userWiseCampaign.map((mycampaign, index) => <tr key={mycampaign._id}>
                                 <th>{index + 1}</th>
                                 <td><img src={mycampaign.image} alt="" className='w-20 h-16' /></td>
                                 <td>{mycampaign.title}</td>

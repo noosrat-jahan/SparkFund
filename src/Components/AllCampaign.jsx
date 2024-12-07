@@ -10,10 +10,10 @@ const AllCampaign = () => {
 
     return (
         <div className='cam-bg'>
-            <div className="overflow-x-auto w-11/12 mx-auto mt-10">
+            <div className="overflow-x-auto w-[98%] mx-auto mt-10">
                 <table className="table text-base">
                     {/* head */}
-                    <thead className='text-xl'>
+                    <thead className='text-lg'>
                         <tr>
                             <th></th>
                             <th>User Email</th>
