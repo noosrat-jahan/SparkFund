@@ -11,6 +11,7 @@ import ErrorPage from "../Components/ErrorPage";
 import Home from "../Components/Home";
 import UpdateCampaign from "../Components/UpdateCampaign";
 import DonationDetails from "../Components/DonationDetails";
+import PrivateRoute from "./PrivateRoute";
 
 const Router = createBrowserRouter([
     {
@@ -23,18 +24,18 @@ const Router = createBrowserRouter([
                 loader: ()=>fetch('http://localhost:5000/myCampaigns/')
             },
             {
-                path: "allcampaign",
+                path: "/allcampaign",
                 element: <AllCampaign></AllCampaign>,
                 loader: ()=>fetch('http://localhost:5000/myCampaigns/')
             },
             {
-                path: "donationDetails/:id",
-                element: <DonationDetails></DonationDetails>,
+                path: "/donationDetails/:id",
+                element: <PrivateRoute><DonationDetails></DonationDetails></PrivateRoute>,
                 loader: ({params})=>fetch(`http://localhost:5000/myCampaigns/${params.id}`)
             },
             {
-                path: "addcampaign",
-                element: <AddNewCampaign></AddNewCampaign>
+                path: "/addcampaign",
+                element: <PrivateRoute><AddNewCampaign></AddNewCampaign></PrivateRoute>
             },
             {
                 path: "updateCampaign/:id",
@@ -42,13 +43,13 @@ const Router = createBrowserRouter([
                 loader: ({params})=>fetch(`http://localhost:5000/myCampaigns/${params.id}`)
             },
             {
-                path: "mycampaign",
-                element: <MyCampaign></MyCampaign>,
+                path: "/mycampaign",
+                element: <PrivateRoute><MyCampaign></MyCampaign></PrivateRoute>,
                 loader: ()=>fetch('http://localhost:5000/myCampaigns/')
             },
             {
-                path: "mydonation",
-                element: <MyDonation></MyDonation>,
+                path: "/mydonation",
+                element: <PrivateRoute><MyDonation></MyDonation></PrivateRoute>,
                 loader: ()=>fetch('http://localhost:5000/myDonation/')
             },
             {

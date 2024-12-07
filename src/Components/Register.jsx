@@ -1,7 +1,7 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import signup from "../assets/signup.png"
 import { FcGoogle } from 'react-icons/fc';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaGithub } from 'react-icons/fa';
 import { AuthContext } from '../Provider/AuthProvider';
 import Swal from 'sweetalert2';
@@ -10,7 +10,9 @@ import Swal from 'sweetalert2';
 const Register = () => {
 
     const { setUser, createNewUser, GoogleLogin } = useContext(AuthContext)
+    const [errormessage, setErrormessage] = useState("")
     const navigate = useNavigate()
+    const location = useLocation()
 
     const handleSubmit = e => {
         e.preventDefault()
@@ -23,13 +25,27 @@ const Register = () => {
         const regUser = { name, email, photo, password }
         console.log(regUser);
 
+        setErrormessage("")
+
+        if(password.length < 6){
+            setErrormessage("Password must be 6 character or longer")
+            return
+        }
+
+        const passwordRegEx = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
+
+        if(!passwordRegEx.test(password)){
+            setErrormessage("Password must contain an uppercase letter, a lowercase letter, a digit and a special character")
+            return
+        }
+
         createNewUser(email, password)
             .then((result) => {
                 const user = result.user
                 console.log(user);
                 setUser(user)
                 Swal.fire("Singed Up Successfully!");
-                navigate('/')
+                navigate(location?.state ? location.state :"/")
             })
             .catch(err => {
                 console.log('Error:', err.message);
@@ -43,7 +59,7 @@ const Register = () => {
                 console.log(user);
                 setUser(user)
                 Swal.fire("Log in with google is Successfull!");
-                navigate('/')
+                navigate(location?.state ? location.state :"/")
             })
             .catch(err => {
                 console.log('Error:', err.message);
@@ -56,7 +72,10 @@ const Register = () => {
             <img src={signup} alt="" className='lg:w-2/5 lg:mt-20' />
 
             <div className="card bg-base-100 w-full max-w-md shrink-0 shadow-lg border border-[#D0D0D0] ">
-                <h1 className='text-2xl font-semibold'>Register</h1>
+                <h1 className='text-3xl font-semibold'>Register</h1>
+                {
+                    errormessage && <p className='mt-3 font-semibold text-red-600'>{errormessage}</p>
+                }
                 <form onSubmit={handleSubmit} className="card-body gap-3 p-1">
                     <div className="form-control">
                         <label className="label">

@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import login from "../assets/login.png"
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FcGoogle } from 'react-icons/fc';
 import { AuthContext } from '../Provider/AuthProvider';
 import Swal from 'sweetalert2';
@@ -10,6 +10,7 @@ const Login = () => {
 
     const { LogInUser, setUser, GoogleLogin } = useContext(AuthContext)
     const navigate = useNavigate()
+    const location = useLocation()
 
     const handleLogin = e => {
         e.preventDefault()
@@ -25,7 +26,7 @@ const Login = () => {
                 const user = result.user
                 setUser(user)
                 Swal.fire("Log In Successfull!");
-                navigate('/')
+                navigate(location?.state ? location.state :"/")
                 console.log(user);
             })
             .catch(err => {
@@ -40,7 +41,7 @@ const Login = () => {
                 console.log(user);
                 setUser(user)
                 Swal.fire("Log in with google is Successfull!");
-                navigate('/')
+                navigate(location?.state ? location.state :"/")
             })
             .catch(err => {
                 console.log('Error:', err.message);
