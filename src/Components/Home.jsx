@@ -22,11 +22,21 @@ import slider3 from "../assets/slider3.jpg"
 const Home = () => {
 
     const loadedCampaigns = useLoaderData()
+    
+    const currentTime = new Date().toLocaleString('en-US', {
+        day: '2-digit',
+        month: 'long',
+        year: 'numeric',
+    }, { timeZone: 'UTC' });
+
+    
+    const runningCampaign = loadedCampaigns.filter(campaign => new Date(campaign.formattedDate) > new Date(currentTime))
+   
 
     return (
         <div>
             <div className='mt-5'>
-                <Swiper                    
+                <Swiper
                     spaceBetween={50}
                     slidesPerView={1}
                     cssMode={true}
@@ -79,7 +89,7 @@ const Home = () => {
 
                 <div className='w-11/12 mx-auto grid grid-cols-1 lg:grid-cols-3 gap-x-5 gap-y-8'>
                     {
-                        loadedCampaigns.map(campaign => <RunningCampaign key={campaign._id} campaign={campaign}></RunningCampaign>)
+                        runningCampaign.map(campaign => <RunningCampaign key={campaign._id} campaign={campaign}></RunningCampaign>)
                     }
                 </div>
             </div>
