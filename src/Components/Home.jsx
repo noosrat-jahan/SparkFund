@@ -57,26 +57,26 @@ const Home = () => {
                     className="mySwiper"
                 >
                     <SwiperSlide className='bg one'>
-                        <div className='flex flex-col items-end text-right gap-3 mr-10'>
-                            <h2 className='text-lime-100 text-4xl font-bold w-1/2'>Support meaningful causes addressing vital human needs—your contributions create a ripple of hope and opportunity.🌟</h2>
+                        <div className='flex flex-col items-end text-right gap-3 lg:mr-10 mr-4'>
+                            <h2 className='text-lime-100 lg:text-4xl font-bold lg:w-1/2'>Support meaningful causes addressing vital human needs—your contributions create a ripple of hope and opportunity.🌟</h2>
                             <Link to="/allcampaign" className='bg-[#c1ec4a] uppercase px-4 py-2 rounded-md text-black'>see campaigns</Link>
                         </div>
                     </SwiperSlide>
                     <SwiperSlide className='bg two'>
-                        <div className='flex flex-col items-start text-left gap-3 ml-10'>
-                            <h2 className='text-lime-100 text-4xl font-semibold w-1/2'>Bring essential healthcare to underserved regions with solar-powered mobile clinics. Together, we can illuminate lives with sustainable energy and accessible medical care.🌟</h2>
+                        <div className='flex flex-col items-start text-left gap-3 lg:ml-10 ml-4'>
+                            <h2 className='text-lime-100 lg:text-4xl font-semibold lg:w-1/2'>Bring essential healthcare to underserved regions with solar-powered mobile clinics. Together, we can illuminate lives with sustainable energy and accessible medical care.🌟</h2>
                             <Link to="/allcampaign" className='bg-[#c1ec4a] uppercase px-4 py-2 rounded-md text-black'>see campaigns</Link>
                         </div>
                     </SwiperSlide>
                     <SwiperSlide className='bg three'>
-                        <div className='flex flex-col items-end text-right gap-3 mr-10'>
-                            <h2 className='text-lime-100 text-4xl font-bold w-1/2'>Join the movement to create eco-friendly clothing from recycled materials. Support a vision where style meets sustainability, reducing waste while inspiring a greener future. 🌿</h2>
+                        <div className='flex flex-col items-end text-right gap-3 lg:mr-10 mr-4'>
+                            <h2 className='text-lime-100 lg:text-4xl font-bold lg:w-1/2'>Join the movement to create eco-friendly clothing from recycled materials. Support a vision where style meets sustainability, reducing waste while inspiring a greener future. 🌿</h2>
                             <Link to="/allcampaign" className='bg-[#c1ec4a] uppercase px-4 py-2 rounded-md text-black'>see campaigns</Link>
                         </div>
                     </SwiperSlide>
                     <SwiperSlide className='bg four'>
-                        <div className='flex flex-col items-end text-right gap-3 mr-10'>
-                            <h2 className='text-lime-100 text-4xl font-bold w-1/2'>Support a sustainable future with eco-friendly deliveries using bicycles and e-scooters. Together, we can reduce carbon footprints and inspire cleaner, greener cities. 🌱</h2>
+                        <div className='flex flex-col items-end text-right gap-3 lg:mr-10 mr-3'>
+                            <h2 className='text-lime-100 lg:text-4xl font-bold lg:w-1/2'>Support a sustainable future with eco-friendly deliveries using bicycles and e-scooters. Together, we can reduce carbon footprints and inspire cleaner, greener cities. 🌱</h2>
                             <Link to="/allcampaign" className='bg-[#c1ec4a] uppercase px-4 py-2 rounded-md text-black'>see campaigns</Link>
                         </div>
                     </SwiperSlide>

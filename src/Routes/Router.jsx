@@ -12,6 +12,7 @@ import Home from "../Components/Home";
 import UpdateCampaign from "../Components/UpdateCampaign";
 import DonationDetails from "../Components/DonationDetails";
 import PrivateRoute from "./PrivateRoute";
+import UpdateProfile from "../Components/UpdateProfile";
 
 const Router = createBrowserRouter([
     {
@@ -59,6 +60,10 @@ const Router = createBrowserRouter([
             {
                 path: "register",
                 element: <Register></Register>
+            },
+            {
+                path: "/updateprofile",
+                element: <UpdateProfile></UpdateProfile>
             },
             
         ]

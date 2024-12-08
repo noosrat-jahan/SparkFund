@@ -69,8 +69,8 @@ const DonationDetails = () => {
     }
 
     return (
-        <div className='  mx-auto  flex gap-6  justify-evenly px-6 py-10 shadow-xl rounded'>
-            <img src={donationDetails.image} alt="" className='w-1/2  rounded' />
+        <div className='  mx-auto flex flex-col lg:flex-row gap-6  justify-evenly px-6 py-10 shadow-xl rounded'>
+            <img src={donationDetails.image} alt="" className='lg:w-1/2  rounded' />
             <div className='text-left space-y-3'>
                 <h1 className='text-3xl text-red-500 font-bold'>{donationDetails.title}</h1>
                 <p className='font-semibold text-xl'>Campaign Type: {donationDetails.camtype}</p>
