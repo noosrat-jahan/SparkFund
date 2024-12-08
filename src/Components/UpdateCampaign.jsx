@@ -9,7 +9,7 @@ const UpdateCampaign = () => {
     const navigate = useNavigate()
 
     const updatedCampaign = useLoaderData()
-    console.log(updatedCampaign);
+    
     const { _id, image, title, camtype, amount, deadline, count, description } = updatedCampaign
 
     const handleUpdateCampaign = e => {
@@ -25,7 +25,7 @@ const UpdateCampaign = () => {
         const count = form.count.value
         const description = form.description.value
         const updateCampaign = { email, image, title, camtype, amount, deadline, count, description }
-        console.log(updateCampaign);
+        
 
         fetch(`https://crowd-funding-application-server.vercel.app/myCampaigns/${_id}`, {
             method: 'PUT',
@@ -36,7 +36,7 @@ const UpdateCampaign = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 if(data.modifiedCount > 0){
                     Swal.fire({
                         position: "center",

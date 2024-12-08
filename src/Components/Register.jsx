@@ -23,7 +23,7 @@ const Register = () => {
         const photo = form.photo.value
         const password = form.password.value
         const regUser = { name, email, photo, password }
-        console.log(regUser);
+        
 
         setErrormessage("")
 
@@ -42,7 +42,7 @@ const Register = () => {
         createNewUser(email, password)
             .then((result) => {
                 const user = result.user
-                console.log(user);
+                
                 setUser(user)
                 Swal.fire("Singed Up Successfully!");
                 navigate(location?.state ? location.state :"/")
@@ -56,7 +56,7 @@ const Register = () => {
         GoogleLogin()
             .then((result) => {
                 const user = result.user
-                console.log(user);
+                
                 setUser(user)
                 Swal.fire("Log in with google is Successfull!");
                 navigate(location?.state ? location.state :"/")

@@ -5,26 +5,29 @@ import { useLoaderData, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../Provider/AuthProvider';
 
+import { Tooltip } from 'react-tooltip'
+import 'react-tooltip/dist/react-tooltip.css'
+
 const MyCampaign = () => {
 
-    const {user} = useContext(AuthContext)
+    const { user } = useContext(AuthContext)
     const navigate = useNavigate()
 
-    
+
     const LoadedCampaigns = useLoaderData()
     const [myCampaigns, setmyCampaigns] = useState(LoadedCampaigns)
 
     const userWiseCampaign = myCampaigns.filter(camp => camp.email === user?.email)
     // setmyCampaigns(userWiseCampaign)
 
-    
-    const handleUpdate = id =>{
-        console.log(id);
+
+    const handleUpdate = id => {
+        
         navigate(`/updateCampaign/${id}`)
     }
 
     const handleDelete = id => {
-        console.log(id);
+       
 
         Swal.fire({
             title: "Are you sure?",
@@ -42,7 +45,7 @@ const MyCampaign = () => {
                 })
                     .then(res => res.json())
                     .then(data => {
-                        console.log(data);
+                        // console.log(data);
 
                         Swal.fire({
                             title: "Deleted!",
@@ -50,7 +53,7 @@ const MyCampaign = () => {
                             icon: "success"
                         });
 
-                        const remainingCampaign = myCampaigns.filter(mycamp=>mycamp._id !== id)
+                        const remainingCampaign = myCampaigns.filter(mycamp => mycamp._id !== id)
                         setmyCampaigns(remainingCampaign)
                     })
 
@@ -82,13 +85,27 @@ const MyCampaign = () => {
                                 <td>{mycampaign.title}</td>
                                 <td>{mycampaign.camtype}</td>
                                 <td>{mycampaign.formattedDate}</td>
-                                <td><button onClick={() => { handleUpdate(mycampaign._id) }}><FaEdit /></button></td>
-                                <td><button onClick={() => { handleDelete(mycampaign._id) }}><MdDelete /></button></td>
+                                <td>
+                                    <button data-tooltip-id="my-tooltip"
+                                    data-tooltip-content="Edit" 
+                                    onClick={() => { handleUpdate(mycampaign._id) }}>
+                                        <FaEdit />
+                                    </button>
+                                </td>
+                                <td>
+                                    <button data-tooltip-id="my-tooltip"
+                                    data-tooltip-content="Delete" 
+                                    onClick={() => { handleDelete(mycampaign._id) }}>
+                                        <MdDelete />
+                                    </button>
+                                </td>
 
                             </tr>)
                         }
                     </tbody>
                 </table>
+
+                <Tooltip id="my-tooltip" />
             </div>
         </div>
     );

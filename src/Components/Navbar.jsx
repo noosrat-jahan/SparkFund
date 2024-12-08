@@ -5,6 +5,8 @@ import { AuthContext } from '../Provider/AuthProvider';
 import Swal from 'sweetalert2';
 import { IoMoon, IoSunny } from 'react-icons/io5';
 
+import { Tooltip } from 'react-tooltip'
+import 'react-tooltip/dist/react-tooltip.css'
 
 const Navbar = () => {
 
@@ -95,7 +97,10 @@ const Navbar = () => {
 
             }
 
-            <button onClick={() => darkModeHandler()} className=' text-xl'>
+            <button onClick={() => darkModeHandler()}
+                className=' text-xl bg-blue-100 p-2 dark:text-black rounded-full ml-5'
+                data-tooltip-id="my-tooltip"
+                data-tooltip-content="Change Theme">
                 {
 
                     dark && <IoSunny />
@@ -104,6 +109,8 @@ const Navbar = () => {
                     !dark && <IoMoon />
                 }
             </button>
+
+            <Tooltip id="my-tooltip" />
         </div>
     );
 };

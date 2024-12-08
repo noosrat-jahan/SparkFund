@@ -1,14 +1,16 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import login from "../assets/login.png"
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FcGoogle } from 'react-icons/fc';
 import { AuthContext } from '../Provider/AuthProvider';
 import Swal from 'sweetalert2';
+import { toast, ToastContainer } from 'react-toastify';
 
 
 const Login = () => {
 
     const { LogInUser, setUser, GoogleLogin } = useContext(AuthContext)
+    const [errormessage, setErrormessage] = useState("")
     const navigate = useNavigate()
     const location = useLocation()
 
@@ -19,18 +21,31 @@ const Login = () => {
         const email = form.email.value
         const password = form.password.value
         const logUser = { email, password }
-        console.log(logUser);
+        
+
+        setErrormessage("")
 
         LogInUser(email, password)
             .then((result) => {
                 const user = result.user
                 setUser(user)
                 Swal.fire("Log In Successfull!");
-                navigate(location?.state ? location.state :"/")
-                console.log(user);
+                navigate(location?.state ? location.state : "/")
+                
             })
             .catch(err => {
                 console.log('Error:', err.message);
+                if (err.message === "Firebase: Error (auth/invalid-credential).") {
+                    toast.error("Invalid Email or Password", {
+                        position: "top-center",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                    });
+                }
+
             })
     }
 
@@ -38,10 +53,10 @@ const Login = () => {
         GoogleLogin()
             .then((result) => {
                 const user = result.user
-                console.log(user);
+                // console.log(user);
                 setUser(user)
                 Swal.fire("Log in with google is Successfull!");
-                navigate(location?.state ? location.state :"/")
+                navigate(location?.state ? location.state : "/")
             })
             .catch(err => {
                 console.log('Error:', err.message);
@@ -78,7 +93,7 @@ const Login = () => {
                     <h2>Don't Have an Account? <Link to="/register" className='text-[#efb343] font-bold'>Sign Up</Link></h2>
                 </form>
             </div>
-
+            <ToastContainer></ToastContainer>
         </div>
     );
 };

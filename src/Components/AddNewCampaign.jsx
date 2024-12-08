@@ -25,7 +25,7 @@ const AddNewCampaign = () => {
         const count = form.count.value
         const description = form.description.value
         const newCampaign = { name, email, image, title, camtype, amount, formattedDate, count, description }
-        console.log(newCampaign);
+        
 
         fetch('https://crowd-funding-application-server.vercel.app/myCampaigns', {
             method: 'POST',
@@ -36,7 +36,7 @@ const AddNewCampaign = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                
                 if(data.insertedId){
                     Swal.fire({
                         position: "center",

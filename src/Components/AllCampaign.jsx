@@ -9,7 +9,7 @@ const AllCampaign = () => {
     const [myCampaigns, setmyCampaigns] = useState(LoadedCampaigns)
 
     const handleSort = ()=>{
-        const sortedCampaign = [...myCampaigns].sort((a, b) => (b.amount) - (a.amount))
+        const sortedCampaign = [...myCampaigns].sort((a, b) => (a.amount) - (b.amount))
         setmyCampaigns(sortedCampaign)        
     }
 
