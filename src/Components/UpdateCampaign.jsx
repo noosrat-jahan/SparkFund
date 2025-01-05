@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { AuthContext } from '../Provider/AuthProvider';
 import { useLoaderData, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import { format } from 'date-fns';
 
 const UpdateCampaign = () => {
 
@@ -22,9 +23,11 @@ const UpdateCampaign = () => {
         const camtype = form.camtype.value
         const amount = form.amount.value
         const deadline = form.deadline.value
+        const formattedDate = format(new Date(deadline), "MMMM dd, yyyy");
+
         const count = form.count.value
         const description = form.description.value
-        const updateCampaign = { email, image, title, camtype, amount, deadline, count, description }
+        const updateCampaign = { email, image, title, camtype, amount, formattedDate, count, description }
         
 
         fetch(`https://crowd-funding-application-server.vercel.app/myCampaigns/${_id}`, {

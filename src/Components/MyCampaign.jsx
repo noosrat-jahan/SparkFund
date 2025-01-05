@@ -26,8 +26,7 @@ const MyCampaign = () => {
         navigate(`/updateCampaign/${id}`)
     }
 
-    const handleDelete = id => {
-       
+    const handleDelete = id => {       
 
         Swal.fire({
             title: "Are you sure?",

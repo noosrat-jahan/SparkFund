@@ -9,7 +9,7 @@ const PrivateRoute = ( {children} ) => {
     
     
     if(loading){
-        return <div className=''><span className="loading loading-spinner text-error"></span></div>
+        return <div className='mt-10'><span className=" loading loading-spinner text-error"></span></div>
     }
 
     if(user && user?.email){
@@ -19,3 +19,18 @@ const PrivateRoute = ( {children} ) => {
 };
 
 export default PrivateRoute;
+
+
+//for data loading use loading spinner
+// Programming-Hero Instructors
+// 9:50 PM
+// function HomePage() {
+// const navigation = useNavigation();
+// return (
+// <>
+// <Header />
+// <Sidebar />
+// {navigation.state === "loading" ? <LoadingScreen /> : <Outlet />}
+// </>
+// )
+// }

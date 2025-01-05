@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import signup from "../assets/signup.png"
 import { FcGoogle } from 'react-icons/fc';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { FaGithub } from 'react-icons/fa';
+import { FaEye, FaEyeSlash, FaGithub } from 'react-icons/fa';
 import { AuthContext } from '../Provider/AuthProvider';
 import Swal from 'sweetalert2';
 
@@ -11,6 +11,7 @@ const Register = () => {
 
     const { setUser, createNewUser, GoogleLogin } = useContext(AuthContext)
     const [errormessage, setErrormessage] = useState("")
+    const [showPassword, setShowPassword] = useState(false)
     const navigate = useNavigate()
     const location = useLocation()
 
@@ -23,18 +24,18 @@ const Register = () => {
         const photo = form.photo.value
         const password = form.password.value
         const regUser = { name, email, photo, password }
-        
+
 
         setErrormessage("")
 
-        if(password.length < 6){
+        if (password.length < 6) {
             setErrormessage("Password must be 6 character or longer")
             return
         }
 
         const passwordRegEx = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
 
-        if(!passwordRegEx.test(password)){
+        if (!passwordRegEx.test(password)) {
             setErrormessage("Password must contain an uppercase letter, a lowercase letter, a digit and a special character")
             return
         }
@@ -42,10 +43,10 @@ const Register = () => {
         createNewUser(email, password)
             .then((result) => {
                 const user = result.user
-                
+
                 setUser(user)
                 Swal.fire("Singed Up Successfully!");
-                navigate(location?.state ? location.state :"/")
+                navigate(location?.state ? location.state : "/")
             })
             .catch(err => {
                 console.log('Error:', err.message);
@@ -56,10 +57,10 @@ const Register = () => {
         GoogleLogin()
             .then((result) => {
                 const user = result.user
-                
+
                 setUser(user)
                 Swal.fire("Log in with google is Successfull!");
-                navigate(location?.state ? location.state :"/")
+                navigate(location?.state ? location.state : "/")
             })
             .catch(err => {
                 console.log('Error:', err.message);
@@ -95,12 +96,19 @@ const Register = () => {
                         </label>
                         <input type="text" name='photo' placeholder="Your Photo" className="input input-bordered" required />
                     </div>
-                    <div className="form-control">
+                    <div className="form-control relative">
                         <label className="label">
                             <span className="label-text">Password</span>
                         </label>
-                        <input type="password" name='password' placeholder="password" className="input input-bordered" required />
-
+                        <input
+                            type={showPassword ? "text" : "password"}
+                            name='password' placeholder="password"
+                            className="input input-bordered" required />
+                        <span onClick={() => { setShowPassword(!showPassword) }} className='absolute right-4 top-14'>
+                            {
+                                showPassword ? <FaEye /> : <FaEyeSlash />
+                            }
+                        </span>
                     </div>
                     <div className="form-control">
                         <button className="btn bg-[#fabf55] font-bold text-lg">Sign Up</button>

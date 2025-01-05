@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -7,12 +7,15 @@ import Swal from 'sweetalert2';
 
 import { Tooltip } from 'react-tooltip'
 import 'react-tooltip/dist/react-tooltip.css'
+import { AuthContext } from '../Provider/AuthProvider';
 
 const DonationDetails = () => {
 
     const donationDetails = useLoaderData()
+    
+    const {user} = useContext(AuthContext)
+    
     const { name, email, image, title, camtype, description, formattedDate, amount, count } = donationDetails
-
 
 
     const daysLeft = Math.ceil((new Date(formattedDate) - new Date()) / (1000 * 60 * 60 * 24))
@@ -26,8 +29,8 @@ const DonationDetails = () => {
         }, { timeZone: 'UTC' });
         
 
-        const DonatedCampaign = { name, email, image, title, camtype, description, formattedDate, amount, count }
-
+        const DonatedCampaign = { name, email, image, title, camtype, description, formattedDate, amount, count, userEmail:user?.email }
+        console.log(DonatedCampaign);
 
         if (new Date(formattedDate) < new Date(currentTime)) {
             toast.error("Sorry, Campaign is no longer active!", {
@@ -51,7 +54,7 @@ const DonationDetails = () => {
             confirmButtonText: "Sure, I am ready to donate"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch('https://crowd-funding-application-server.vercel.app/myDonation/', {
+                fetch('https://crowd-funding-application-server.vercel.app/myDonation', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'

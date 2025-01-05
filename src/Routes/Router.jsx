@@ -40,7 +40,7 @@ const Router = createBrowserRouter([
             },
             {
                 path: "updateCampaign/:id",
-                element: <UpdateCampaign></UpdateCampaign>,
+                element: <PrivateRoute><UpdateCampaign></UpdateCampaign></PrivateRoute>,
                 loader: ({params})=>fetch(`https://crowd-funding-application-server.vercel.app/myCampaigns/${params.id}`)
             },
             {

@@ -4,7 +4,7 @@ import RunningCampaign from './RunningCampaign';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import { Typewriter } from 'react-simple-typewriter'
-
+import Reveal, { Fade, Slide } from "react-awesome-reveal";
 
 // Import Swiper styles
 import 'swiper/css';
@@ -38,6 +38,7 @@ const Home = () => {
     return (
         <div>
             
+
             {/* banner or slider section */}
             <div className='mt-5'>
                 <Swiper
@@ -62,32 +63,32 @@ const Home = () => {
                 >
                     <SwiperSlide className='bg one'>
                         <div className='flex flex-col items-end text-right gap-3 lg:mr-10 mr-4'>
-                            <h2 className='text-lime-100 lg:text-4xl font-bold lg:w-1/2'>Support meaningful causes addressing vital human needs—your contributions create a ripple of hope and opportunity.🌟</h2>
+                            <Reveal className='text-lime-100 lg:text-4xl font-bold lg:w-1/2'>Support meaningful causes addressing vital human needs—your contributions create a ripple of hope and opportunity.🌟</Reveal>
                             <Link to="/allcampaign" className='bg-[#c1ec4a] uppercase px-4 py-2 rounded-md text-black'>see campaigns</Link>
                         </div>
                     </SwiperSlide>
                     <SwiperSlide className='bg two'>
                         <div className='flex flex-col items-start text-left gap-3 lg:ml-10 ml-4'>
-                            <h2 className='text-lime-100 lg:text-4xl font-semibold lg:w-1/2'>Bring essential healthcare to underserved regions with solar-powered mobile clinics. Together, we can illuminate lives with sustainable energy and accessible medical care.🌟</h2>
+                            <Slide direction="right" className='text-lime-100 lg:text-4xl font-semibold lg:w-1/2'>Bring essential healthcare to underserved regions with solar-powered mobile clinics. Together, we can illuminate lives with sustainable energy and accessible medical care.🌟</Slide>
                             <Link to="/allcampaign" className='bg-[#c1ec4a] uppercase px-4 py-2 rounded-md text-black'>see campaigns</Link>
                         </div>
                     </SwiperSlide>
                     <SwiperSlide className='bg three'>
                         <div className='flex flex-col items-end text-right gap-3 lg:mr-10 mr-4'>
-                            <h2 className='text-lime-100 lg:text-4xl font-bold lg:w-1/2'>Join the movement to create eco-friendly clothing from recycled materials. Support a vision where style meets sustainability, reducing waste while inspiring a greener future. 🌿</h2>
+                            <Reveal className='text-lime-100 lg:text-4xl font-bold lg:w-1/2'>Join the movement to create eco-friendly clothing from recycled materials. Support a vision where style meets sustainability, reducing waste while inspiring a greener future. 🌿</Reveal>
                             <Link to="/allcampaign" className='bg-[#c1ec4a] uppercase px-4 py-2 rounded-md text-black'>see campaigns</Link>
                         </div>
                     </SwiperSlide>
                     <SwiperSlide className='bg four'>
                         <div className='flex flex-col items-end text-right gap-3 lg:mr-10 mr-3'>
-                            <h2 className='text-lime-100 lg:text-4xl font-bold lg:w-1/2'>Support a sustainable future with eco-friendly deliveries using bicycles and e-scooters. Together, we can reduce carbon footprints and inspire cleaner, greener cities. 🌱</h2>
+                            <Reveal className='text-lime-100 lg:text-4xl font-bold lg:w-1/2'>Support a sustainable future with eco-friendly deliveries using bicycles and e-scooters. Together, we can reduce carbon footprints and inspire cleaner, greener cities. 🌱</Reveal>
                             <Link to="/allcampaign" className='bg-[#c1ec4a] uppercase px-4 py-2 rounded-md text-black'>see campaigns</Link>
                         </div>
                     </SwiperSlide>
                 </Swiper>
             </div>
 
-            
+
             {/* running campaign section */}
             <div className='mt-20'>
                 <h1 className='text-4xl text-pink-500 font-bold font-poppins typewriter-container'>
@@ -102,7 +103,7 @@ const Home = () => {
                     />
                 </h1>
 
-                <div className='w-11/12 mt-10 mx-auto grid grid-cols-1 lg:grid-cols-3 gap-x-5 gap-y-8'>
+                <div  className='w-11/12 mt-10 mx-auto grid grid-cols-1 lg:grid-cols-3 gap-x-5 gap-y-8'>
                     {
                         runningCampaign.map(campaign => <RunningCampaign key={campaign._id} campaign={campaign}></RunningCampaign>)
                     }
@@ -112,7 +113,7 @@ const Home = () => {
 
             {/* section-3 */}
             <h1 className='lg:text-3xl uppercase text-purple-950 font-semibold my-8'>
-            What Investors are Saying</h1>
+                What Investors are Saying</h1>
             <div class="grid grid-cols-1 lg:grid-cols-4 justify-center gap-6 p-6">
                 <div class=" bg-white shadow-md rounded-lg p-6 text-center">
                     <img src={logo} alt="Logo" class="w-28 h-20 mx-auto mb-4" />
@@ -144,7 +145,7 @@ const Home = () => {
             </div>
 
 
-             {/* section four */}
+            {/* section four */}
             <div className='bg-[#f4f4f4] mt-10 grid grid-cols-1 lg:grid-cols-2 items-center p-10 gap-5'>
                 <img src={faq} alt="" className='w-full' />
                 <div className='text-left'>
