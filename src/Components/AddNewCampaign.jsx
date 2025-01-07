@@ -51,10 +51,10 @@ const AddNewCampaign = () => {
     }
 
     return (
-        <div className='w-10/12 mx-auto mt-5'>
+        <div className='w-10/12 mx-auto mt-14'>
             <h1 className='text-4xl text-emerald-500 font-semibold'>Add New Campaign</h1>
 
-            <form onSubmit={handleAddNewCampaign} className='mt-2 space-y-2 '>
+            <form onSubmit={handleAddNewCampaign} className='mt-5 space-y-2 '>
 
                 <div className='flex flex-col lg:flex-row items-center gap-3 '>
                     <div className="form-control w-full">

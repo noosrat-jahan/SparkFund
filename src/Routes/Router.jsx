@@ -13,6 +13,9 @@ import UpdateCampaign from "../Components/UpdateCampaign";
 import DonationDetails from "../Components/DonationDetails";
 import PrivateRoute from "./PrivateRoute";
 import UpdateProfile from "../Components/UpdateProfile";
+import AboutUs from "../Components/AboutUs";
+import Contact from "../Components/Contact";
+import Support from "../Components/Support";
 
 const Router = createBrowserRouter([
     {
@@ -23,6 +26,18 @@ const Router = createBrowserRouter([
                 path: "/",
                 element: <Home></Home>,
                 loader: ()=>fetch('https://crowd-funding-application-server.vercel.app/myCampaigns/')
+            },
+            {
+                path: "/about",
+                element: <AboutUs></AboutUs>
+            },
+            {
+                path: "/contact",
+                element: <Contact></Contact>
+            },
+            {
+                path: "/support",
+                element: <Support></Support>
             },
             {
                 path: "/allcampaign",

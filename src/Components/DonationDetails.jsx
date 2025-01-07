@@ -84,7 +84,7 @@ const DonationDetails = () => {
             <img src={donationDetails.image} alt="" className='lg:w-1/2  rounded' />
             <div className='text-left space-y-3'>
                 <h1 className='text-3xl text-red-500 font-bold'>{donationDetails.title}</h1>
-                <p className='font-semibold text-xl'>Campaign Type: {donationDetails.camtype}</p>
+                <p className='font-semibold text-xl uppercase'>Campaign Type: {donationDetails.camtype}</p>
                 <p className='font-semibold text-justify'>{donationDetails.description}</p>
                 <h4 className='bg-amber-200 p-2 w-1/2 font-bold text-[#7E1891]'
                     data-tooltip-id="my-tooltip"

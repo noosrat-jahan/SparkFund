@@ -7,7 +7,7 @@ const ErrorPage = () => {
     return (
         <div>
             <img src={error} alt=""  className='w-1/2 mx-auto'/>
-            <Link to="/" className='btn btn-info text-white text-2xl'> <IoMdHome /> Back To Home</Link>
+            <Link to="/" className='btn bg-[#e9a02af8]  text-white text-2xl'> <IoMdHome /> Back To Home</Link>
         </div>
     );
 };

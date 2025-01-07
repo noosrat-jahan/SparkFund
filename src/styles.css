@@ -18,14 +18,13 @@
   
   .swiper {
     width: 100%;
-    height: 75vh;
+    height: 68vh;
   }
   
   .swiper-slide {
     text-align: center;
     font-size: 18px;
-    background: #fff;
-  
+    background: #fff;  
     background-image: linear-gradient(red, blue);
     /* Center slide text vertically */
     display: flex;

@@ -4,16 +4,16 @@ import { FaFacebookF, FaInstagram, FaLinkedinIn, FaTwitter, FaYoutube } from 're
 
 const Footer = () => {
     return (
-        <div className='footer-bg px-3 bg-amber-100 dark:text-black mt-10 flex flex-col items-center space-y-2 py-10'>
+        <div className='footer-bg px-3 bg-[#f0f5fb] dark:bg-black dark:text-white mt-10 flex flex-col items-center space-y-2 py-10'>
             <img src={logo} alt="" className='lg:w-1/5 ' />
             <h1 className='font-semibold font-rancho text-xl'>"Fuel Ambitions, Spark Change"</h1>
             <h2 className='font-semibold text-xl w-2/3'>A modern platform  to fund ideas, ventures, and meaningful causes and for collaborative funding and limitless innovation.</h2>
             <div className='flex items-center gap-3 py-6'>
-                <span className='bg-amber-300 rounded-full p-2.5'><FaLinkedinIn /></span>
-                <span className='bg-amber-300 rounded-full p-2.5'><FaYoutube /></span>
-                <span className='bg-amber-300 rounded-full p-2.5'><FaInstagram /></span>
-                <span className='bg-amber-300 rounded-full p-2.5'><FaFacebookF /></span>
-                <span className='bg-amber-300 rounded-full p-2.5'><FaTwitter /></span>
+                <a href='#' className='bg-amber-300 text-xl rounded-full p-3'><FaLinkedinIn /></a>
+                <a href='#' className='bg-amber-300 text-xl rounded-full p-3'><FaYoutube /></a>
+                <a href='#' className='bg-amber-300 text-xl rounded-full p-3'><FaInstagram /></a>
+                <a href='#' className='bg-amber-300 text-xl rounded-full p-3'><FaFacebookF /></a>
+                <a href='#' className='bg-amber-300 text-xl rounded-full p-3'><FaTwitter /></a>
             </div>
             <hr className='h-0.5 w-4/5 bg-amber-300' />
 
