@@ -3,10 +3,10 @@ import React from 'react';
 const Contact = () => {
     return (
 
-        <div className='dark:text-black  bg-gradient-to-b from-white via-amber-50 to-amber-50 h-screen '>
+        <div className='dark:text-black  bg-gradient-to-b from-white via-amber-50 to-amber-50 h-auto pb-10 '>
             <div className=' mt-10 grid grid-cols-1 md:grid-cols-2 items-center justify-around w-11/12 mx-auto gap-10'>
                 
-                <div className='py-5 relative text-left space-y-6  font-poppins'>
+                <div className='py-5  text-left space-y-6  font-poppins'>
                     <h1 className='text-5xl font-bold '>Get in Touch</h1>
                     {/* <div className='w-64 bg-amber-300 h-4 rounded-sm absolute top-1 '></div> */}
 
@@ -22,8 +22,8 @@ const Contact = () => {
 
                 <div>
                     <h1 className='text-4xl font-bold'> Contact Form</h1>
-                    <div className="card bg-base-100 w-full p-1 shrink-0 shadow-xl">
-                        <form className="card-body p-1 mt-4">
+                    <div className="mt-5 card bg-base-100 w-full p-1 shrink-0 shadow-xl">
+                        <form className="card-body p-1 ">
                             <div className='flex gap-3'>
                                 <div className="form-control w-1/2">
                                     <label className="label">

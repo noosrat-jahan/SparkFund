@@ -116,7 +116,7 @@ const Home = () => {
 
 
             {/* section-3 */}
-            <h1 className='lg:text-3xl uppercase text-purple-950 dark:text-amber-100 font-semibold mt-20 mb-10'>
+            <h1 className='lg:text-3xl text-xl uppercase text-purple-950 dark:text-amber-100 font-semibold mt-20 mb-10'>
                 What Investors are Saying</h1>
             <div class="grid grid-cols-1 lg:grid-cols-4 justify-center gap-6 w-11/12 mx-auto">
                 <div class=" bg-white shadow-md rounded-lg p-6 text-center">
@@ -153,7 +153,7 @@ const Home = () => {
             <div className='bg-[#f4f4f4] dark:bg-black mt-20 grid grid-cols-1 lg:grid-cols-2 items-center p-14 gap-5 gap-y-10'>
                 <img src={faq} alt="" className='w-full' />
                 <div className='text-left space-y-3'>
-                    <h1 className='lg:text-3xl uppercase text-purple-950 dark:text-blue-100 font-semibold mb-10'>
+                    <h1 className='lg:text-3xl text-xl uppercase text-purple-950 dark:text-blue-100 font-semibold mb-10'>
                         Frequently asked QUESTIONS?</h1>
                     <div className="collapse collapse-arrow bg-base-200 dark:bg-gray-500">
                         <input type="radio" name="my-accordion-2" defaultChecked />
