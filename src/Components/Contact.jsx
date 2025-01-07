@@ -3,7 +3,7 @@ import React from 'react';
 const Contact = () => {
     return (
 
-        <div className=' bg-gradient-to-b from-white via-amber-50 to-amber-50 h-screen '>
+        <div className='dark:text-black  bg-gradient-to-b from-white via-amber-50 to-amber-50 h-screen '>
             <div className=' mt-10 grid grid-cols-1 md:grid-cols-2 items-center justify-around w-11/12 mx-auto gap-10'>
                 
                 <div className='py-5 relative text-left space-y-6  font-poppins'>
