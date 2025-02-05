@@ -10,6 +10,7 @@ SparkFund is a simple crowd funding application with different fundion options d
 * Tailwind CSS
 * MongoDB
 * Firebase
+* Node.js
 
 # Key Features
 * SparkFund is a beautiful crowd funding website where any user can know about all   
