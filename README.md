@@ -1,5 +1,7 @@
 # Project Name: SparkFund
 
+![Alt text](src/assets/projectdemo.png)
+
 # Project Overview 
 SparkFund is a simple crowd funding application with different fundion options design and implementation of  relevant UI and user interactivity with react and mongodb. 
 
@@ -62,7 +64,7 @@ SparkFund is a simple crowd funding application with different fundion options d
 
 ## Installation
 
-Run npm install to install project dependencies.
+Run `npm install` to install project dependencies.
 
 ## Environment setup
 Create a .env file and put your environment variable there. Save the following variable:
@@ -74,7 +76,7 @@ VITE_messagingSenderId
 VITE_appId
 
 ## Usage
-Run npm run dev to run the project locally.
+Run `npm run dev` to run the project locally.
 
 # Links: 
 
